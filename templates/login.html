@@ -1,0 +1,23 @@
+{% extends "layout1.html" %}
+{% block title %}
+   Regiter
+{% endblock %}
+
+{% block body %}
+<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
+<img src="{{url_for('static',filename='image/book.jpeg')}}" width="1110" height="250">
+<form action="{{url_for('login')}}" method="post" >
+	<div class="form-group">
+		<input class="form-control" name="username" placeholder="username">
+
+		
+	</div>
+	<div class="form-group">
+		<input class="form-control" name="password" placeholder="password" type="password">
+		
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary">Login</button>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout1.html" %}
+{% block title %}
+   Search
+{% endblock %}
+
+{% block body %}
+<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
+<table style="border: 2px solid black;border-collapse: collapse;width: 50%">
+	<tr>
+		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">ISBN</th>
+		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">Title</th>
+		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">Author</th>
+		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">Year</th>
+		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">Details</th>
+	</tr>
+	{% for Books in book %}
+	<tr>
+		<td style="border: 1px solid black;padding: 5px;text-align: center;">{{Books.isbn}}</td>
+		<td style="border: 1px solid black;padding: 5px;text-align: center;">{{Books.title}}</td>
+		<td style="border: 1px solid black;padding: 5px;text-align: center;">{{Books.author}}</td>
+		<td style="border: 1px solid black;padding: 5px;text-align: center;">{{Books.year}}</td>
+		<td style="border: 1px solid black;padding: 5px;text-align: center;"><a href="/book/{{(Books['isbn'])}}"class="card-link">details</a></td>
+
+	</tr>
+    {%endfor%}
+</table>
+{% endblock %}
