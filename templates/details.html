@@ -9,16 +9,40 @@
 	height: 120px;
 	border: 3px solid #cccccc;
 	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
+	
+		}
+    .kuchbhi {
+		display: flex;
+		flex-direction: row;
+	}
+	.btn-second {
+  		width: 105px;
+  		height: 48px;
+  		margin-left: 2px;
+      margin-right: 2px;
+      background-color: teal;
+	}
+	.div2 {
+  width: 300px;
+  height: 250px;  
+  padding: 50px;
+  
+  background-color: lightgray;
+}
+
 }
 </style>
 {% endblock %}
 
 {% block body %}
-<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
+<div class="kuchbhi">
+<h1 style="background-color: teal;text-align: center;color: white;width: 900px;">Book Review</h1>
+
+<button class="btn btn-primary btn-second" type="button" onclick="window.location.href='{{url_for("logout")}}';" >Logout</button>
+
+</div>
+<div class="div2">
+	<h2>Book Details</h2>
 <ul>
 	{% for Books in book %}
 	<li>ISBN:{{Books.isbn}}</li>
@@ -27,22 +51,56 @@
 	<li>Year:{{Books.year}}</li>
 	{% endfor %}
 </ul>
-<form>
+
+</div>
+<div class="dropdown-divider"></div>
+
+    <h4 class="alert alert-warning">Users Reviews</h4>
+    <h5>Make your own review!</h5>
+
+
+<form method="POST" class="form-border">
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="ratings">Rate this book</label>
+                    <select id="ratings" name="ratings" class="form-control" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option selected value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Say something</span>
+                        </div>
+                        <textarea name="comments" id="comments" class="form-control" rows="1" required placeholder="enter your review here!"></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-sm">
+                    <button class="btn btn-success" type="submit">Post</button>
+                </div>
+            </div>
+        </form>
+
+	<div>
+	<h2>Comments</h2>
+
 	<div class="container">
-		<textarea class="textarea"  placeholder="enter your review here!"></textarea> 
-	<div class="container">
-		<label for="Ratings">Rate this book</label>
-  <select name="Ratings" id="Ratings">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-	</div>
-	<div class="container">
-		<button>Submit</button>
-	</div>
-	
-</form>
+		  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+		
+
+		<ul>
+		{% for reviews in review %}
+		
+		<h5 style="background-color: lightgray;width: 200px;">@{{reviews.bookuser_id}}</h5>
+		<li>reviews:{{reviews.comments}}</li>
+		<li>ratings:{{reviews.ratings}}</li>
+		{% endfor %}
+		</ul>
+        </a>
+</div>
+
 {% endblock %}

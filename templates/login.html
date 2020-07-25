@@ -2,10 +2,28 @@
 {% block title %}
    Regiter
 {% endblock %}
+{% block css %}
+<style type="text/css">
+	.kuchbhi {
+		display: flex;
+		flex-direction: row;
+	}
+	.btn-second {
+  		width: 105px;
+  		height: 48px;
+  		margin-left: 2px;
+      margin-right: 2px;
+      background-color: teal;
+	}
+</style>
+{% endblock %}
 
 {% block body %}
-<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
-<img src="{{url_for('static',filename='image/book.jpeg')}}" width="1110" height="250">
+<div class="kuchbhi">
+<h1 style="background-color: teal;text-align: center;color: white;width: 1000px;">Book Review</h1>
+<button class="btn btn-primary btn-second" type="button" onclick="window.location.href='{{url_for("register1")}}';" method="GET">Signup</button>
+</div>
+<img src="{{url_for('static',filename='image/book1.jpg')}}" width="1110" height="250">
 <form action="{{url_for('login')}}" method="post" >
 	<div class="form-group">
 		<input class="form-control" name="username" placeholder="username">
@@ -18,6 +36,9 @@
 	</div>
 	<div class="form-group">
 		<button class="btn btn-primary">Login</button>
+	</div>
+	<div>
+		<a href="{{url_for('register1')}}">Don't have an account?</a>
 	</div>
 </form>
 {% endblock %}

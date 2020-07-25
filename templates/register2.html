@@ -4,13 +4,9 @@ Register
 {% endblock %}
 
 {% block body %}
-<div>
-	<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
-	<button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Register</button>
-	<button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Login</button>
-</div>
 
-<img src="{{url_for('static',filename='image/book.jpeg')}}" width="1110" height="250">
+<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
+<img src="{{url_for('static',filename='image/book1.jpg')}}" width="1110" height="250">
 <form action="{{url_for('register')}}" method="post">
 	<div class="form-group">
 		<input class="form-control" name="username" placeholder="username">
@@ -22,9 +18,12 @@ Register
 
 	</div>
 	<div class="form-group">
-		<button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Register</button>
-		<button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Login</button>
+		<button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Create</button>
+		
 	</div>
+	<div>
+	<a href="{{url_for('login1')}}">Already have an account?</a>
+    </div>
 </form>
 
 {% endblock %}

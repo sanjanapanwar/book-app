@@ -2,13 +2,39 @@
 {% block title %}
 Register
 {% endblock %}
+{% block css %}
+<style type="text/css">
+	.kuchbhi {
+		display: flex;
+		flex-direction: row;
+	}
+	.btn-second {
+  		width: 105px;
+  		height: 48px;
+  		margin-left: 2px;
+      margin-right: 2px;
+      background-color: teal;
+	}
+</style>
+{% endblock %}
 {% block body %}
-<div>
-    <h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
-    <button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Register</button>
-    <button class="btn btn-primary" formaction="{{url_for('register')}}" method="post">Login</button>
+<div class="kuchbhi">
+    <h1 style="background-color: teal;text-align: center;color: white; width: 1000px">Book Review</h1>
+    <button class="btn btn-primary btn-second" type="button" onclick="window.location.href='{{url_for("register1")}}';" method="GET">Signup</button>
+   
 </div>
 <div>
-    <img src="{{url_for('static',filename='image/book.jpeg')}}" width="1110" height="250">
+    <img src="{{url_for('static',filename='image/book1.jpg')}}" width="1110" height="250">
+</div>
+<h1>
+  Book Reviews
+</h1>
+<p>
+  <h4>Here you can find your favorite books by their details</h4>
+  <h4>info such as ISBN,year,author,etc.You can see their</h4>
+  <h4>rating for the book you desire after you logged in here.</h4>
+</p>
+<div>
+  <button class="btn btn-primary" type="button" onclick="window.location.href='{{url_for("login1")}}';" method="GET">Login</button>
 </div>
 {% endblock %}

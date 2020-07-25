@@ -2,9 +2,29 @@
 {% block title %}
    Search
 {% endblock %}
+{% block css %}
+<style type="text/css">
+	.kuchbhi {
+		display: flex;
+		flex-direction: row;
+	}
+	.btn-second {
+  		width: 105px;
+  		height: 48px;
+  		margin-left: 2px;
+      margin-right: 2px;
+      background-color: teal;
+	}
+</style>
+{% endblock %}
 
 {% block body %}
-<h1 style="background-color: teal;text-align: center;color: white">Book Review</h1>
+<div class="kuchbhi">
+<h1 style="background-color: teal;text-align: center;color: white;width: 1000px;">Book Review</h1>
+<button class="btn btn-primary btn-second" type="button" onclick="window.location.href='{{url_for("search")}}';" method="GET">Search</button>
+<button class="btn btn-primary btn-second" type="button" onclick="window.location.href='{{url_for("logout")}}';" method="GET">Logout</button>
+</div>
+<div>
 <table style="border: 2px solid black;border-collapse: collapse;width: 50%">
 	<tr>
 		<th style="border: 1px solid black;background-color: lightgray;padding: 5px">ISBN</th>
@@ -24,4 +44,5 @@
 	</tr>
     {%endfor%}
 </table>
+</div>
 {% endblock %}
