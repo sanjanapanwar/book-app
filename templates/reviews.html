@@ -1,0 +1,18 @@
+{% extends "layout1.html" %}
+{% block title %}
+   Regiter
+{% endblock %}
+
+{% block body %}
+<h1 style="background-color: teal;text-align: center;color: white;">Book Review</h1>
+<div class="container">
+		<ul>
+		{{% for review in reviews %}}
+		
+		<li>username:{{review.bookuser_id}}</li>
+		<li>reviews:{{review.comments}}</li>
+		<li>ratings:{{review.ratings}}</li>
+		{{% endfor %}}
+		</ul>
+</div>
+{% endblock %}
